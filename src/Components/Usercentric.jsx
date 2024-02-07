@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 import "apexcharts";
 import e from "express";
+import Footbar from "./Footbar";
 // import { Line } from "react-chartjs-2";
 
 const Usercentric = ({ city, position }) => {
@@ -16,7 +17,7 @@ const Usercentric = ({ city, position }) => {
 
   // console.log(city.latitude, city.longitude, );
   // console.log("pos", position.latitude, position.longitude);
-
+  // c
   useEffect(() => {
     const fetchAPI = () => {
       if (chart) {
@@ -182,6 +183,7 @@ const Usercentric = ({ city, position }) => {
             </form>
         </div>
       </div>
+      <Footbar />
     </div>
   );
 };
