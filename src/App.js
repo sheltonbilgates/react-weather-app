@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Banner from './Components/Banner'
+import Usercentric from './Components/Usercentric'
 
 
 
@@ -33,7 +34,7 @@ const year = today.getFullYear();
 const date = today.getDate();
 
   return (
-    <div className= '  bg-[#E8E9F3] dark:bg-[#272635] w-full h-screen dark:text-white'>
+    <div className= '  bg-[#E8E9F3] dark:bg-[#272635] w-full h-full dark:text-white'>
       {/* simple navbar */}
       <div className=' flex justify-between p-2 bg-[#CECECE] dark:bg-[#707072] text-[#121214] items-center tracking-widest'>
         <h1 className='text-xl font-semibold tracking-tighter'>{date}  {month} {year}</h1>
@@ -44,6 +45,7 @@ const date = today.getDate();
       
 
       <Banner />
+      <Usercentric />
     </div>
   )
 }

@@ -2,7 +2,6 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Tab } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 const Banner = () => {
   const [weather, setWeather] = useState(null);
@@ -25,7 +24,7 @@ const Banner = () => {
         });
       } else {
         setGetPosition(false);
-        console.log("Geolocation is not available in your browser");
+        alert("Geolocation is not available in your browser");
       }
     }
   }, [getPosition]);
@@ -89,10 +88,10 @@ const Banner = () => {
     setCityInput(e.target.value);
   };
 
-  console.log("Current City:", city);
-  console.log("Weather response:", weather);
-  console.log("Hourly response:", hourlyData);
-  console.log("Daily response:", dailyData);
+  // console.log("Current City:", city);
+  // console.log("Weather response:", weather);
+  // console.log("Hourly response:", hourlyData);
+  // console.log("Daily response:", dailyData);
 
   const handleuseGPS = () => {
     setGetPosition(true);
@@ -140,7 +139,7 @@ const Banner = () => {
   };
 
   return (
-    <div className=" h-64  rounded-2xl mt-2 mr-8 ml-8 shadow-2xl text-white">
+    <div className=" h-64  rounded-2xl mt-2 mr-8 ml-8 shadow-2xl text-white bg-[#E8E9F3">
       <div className="w-full h-full">
         <div className="absolute w-[95%]  rounded-2xl h-64 bg-gradient-to-l from-gray-700 "></div>
         <img
