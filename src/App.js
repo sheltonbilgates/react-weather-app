@@ -37,7 +37,7 @@ const date = today.getDate();
       {/* simple navbar */}
       <div className=' flex justify-between p-2 bg-[#CECECE] dark:bg-[#707072] text-[#121214] items-center tracking-widest'>
         <h1 className='text-xl font-semibold tracking-tighter'>{date}  {month} {year}</h1>
-        <h1 className='text-2xl font-bold mr-8'>WEATHER APP</h1>
+        <h1 className='text-2xl font-bold mr-32'>WEATHER APP</h1>
         <button onClick={handleSwitch} className='p-2 rounded-xl bg-[#B1E5F2] dark:text-black shadow-xl'>Dark mode</button>
       </div>
       {/* here strts all other components */}
