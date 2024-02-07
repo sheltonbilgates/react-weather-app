@@ -4,6 +4,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 import "apexcharts";
+import e from "express";
 // import { Line } from "react-chartjs-2";
 
 const Usercentric = ({ city, position }) => {
@@ -11,7 +12,7 @@ const Usercentric = ({ city, position }) => {
   const [endDate, setEndDate] = useState("");
   const [dataChart, setDataChart] = useState([]);
   const [chart, setChart] = useState(false);
-  // const [col, setCol] = useState(null)
+  const [notification, setNotification] = useState(false)
 
   // console.log(city.latitude, city.longitude, );
   // console.log("pos", position.latitude, position.longitude);
@@ -109,9 +110,13 @@ const Usercentric = ({ city, position }) => {
     ],
   };
 
+  const handleSubmit = () =>{
+    e.preventDefault()
+    setNotification(true)
+  }
   return (
     <div className="h-screen  dark:bg-[#272635]  bg-[#E8E9F3">
-      <div className=" h-96 rounded-2xl mt-4 mr-8 ml-8 shadow-2xl dark:text-white text-black border grid grid-cols-3 gap-4">
+      <div className=" h-96 rounded-2xl mt-4 mr-8 ml-8 shadow-2xl dark:text-white text-black border grid grid-cols-3 gap-4 flex-wrap" >
         <div className="col-span-2 p-2">
           <h1>Future Forecast</h1>
           <div className="flex flex-row ">
@@ -120,7 +125,7 @@ const Usercentric = ({ city, position }) => {
                 Enter Start date:
               </label>
               <input
-                className="p-1 dark: text-black"
+                className="p-1 dark: text-black rounded-xl"
                 type="date"
                 name=""
                 id="start"
@@ -131,7 +136,7 @@ const Usercentric = ({ city, position }) => {
                 Enter End date:
               </label>
               <input
-                className="p-1 dark: text-black"
+                className="p-1 dark: text-black rounded-xl"
                 type="date"
                 name=""
                 id="end"
@@ -145,7 +150,7 @@ const Usercentric = ({ city, position }) => {
                 Results
               </button>
             </div>
-            <div className="">
+            <div className="w-full dark: text-black">
               <ReactApexChart
                 options={chartData.options}
                 series={chartData.series}
@@ -155,7 +160,27 @@ const Usercentric = ({ city, position }) => {
             </div>
           </div>
         </div>
-        <div className="p-2">2</div>
+        <div className="p-2">
+            <p>For alerts regarding weather in your city</p>
+            <form action="" className="pt-4 flex flex-col" onSubmit={(e)=>handleSubmit(e)}>
+                <label htmlFor="name">Name: </label>
+                <input className="rounded-xl  dark: text-black pl-2" placeholder="Enter your name" id="name" type="text" required/>
+                <br />
+                <label htmlFor="email">Email  :  </label>
+                <input className="rounded-xl  dark: text-black pl-2" placeholder="Enter your email" id="email" type="email" required/>
+                <br />
+                <label htmlFor="phone">Phone: </label>
+                <input className="rounded-xl  dark: text-black pl-2" placeholder="Enter your phone number" id="phone" type="number" required/>
+                <button type="submit " className="bg-red-500 mt-4 pt-1 rounded-xl pb-1">Submit</button>
+                {
+                    notification ? (
+                        <p>Submitted Sucessfully</p>
+                    ) : (
+                        <p></p>
+                    )
+                }
+            </form>
+        </div>
       </div>
     </div>
   );
